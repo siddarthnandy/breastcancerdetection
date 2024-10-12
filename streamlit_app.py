@@ -10,9 +10,8 @@ model = load_model('tumor_detection_model.h5')
 st.title("🩺 Breast Cancer AI Detection App")
 
 st.write(
-    "Welcome! This application uses an AI model to predict the presence of breast cancer in images. "
-    "You can upload a set of mammogram images and see the predictions of our AI model. "
-    "This app is intended for educational purposes and should not be used for medical diagnosis."
+    "This application uses an AI model to predict the presence of breast cancer in images. "
+    "You can upload a set of mammogram images and see the predictions of our AI model."
 )
 
 # File uploader for images
@@ -65,9 +64,9 @@ if uploaded_files:
     with col2:
         st.metric("Tumor Detection Rate", tumor_percentage)
 
-    st.bar_chart(df["Prediction"].value_counts().reset_index(), x="index", y="Prediction")
+    # Corrected bar chart
+    st.bar_chart(df["Prediction"].value_counts())
 
 st.write(
-    "Thank you for using the Breast Cancer AI Detection App. Remember, this tool is for educational purposes and "
-    "is not intended to replace professional medical diagnosis. If you have any concerns, please consult a medical professional."
+    "Thank you for using the Breast Cancer AI Detection App. If you have any concerns, please consult a medical professional."
 )
